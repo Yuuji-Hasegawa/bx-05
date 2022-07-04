@@ -1,0 +1,39 @@
+@use '../settings' as setting;
+.c-heading {
+  font-weight: setting.fontweight(b);
+  line-height: setting.lineheight(heading);
+  font-size: clamp(setting.fontsize(l), calc((100vw - 650px) * 999), setting.fontsize(xl));
+  text-align: center;
+  & + * {
+    margin-top: setting.spaces(l);
+  }
+  &\:mlt,
+  &\:frontProduct {
+    font-family: setting.$font-family-mlt;
+    letter-spacing: clamp(-10px, calc((768px - 100vw) * -999), -16px);
+  }
+  &\:frontProduct {
+    color: setting.lightcolor(bg);
+  }
+}
+.c-trim-title {
+  font-weight: setting.fontweight(b);
+  line-height: setting.lineheight(heading);
+  font-size: setting.fontsize(m);
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  overflow: hidden;
+  max-height: calc(setting.fontsize(m) * setting.lineheight(heading) * 2);
+  text-overflow: ellipsis;
+  &__link {
+    color: inherit;
+  }
+}
+.c-min-heading {
+  font-weight: setting.fontweight(m);
+  line-height: setting.lineheight(heading);
+  font-size: setting.fontsize(l);
+  & + * {
+    margin-top: setting.spaces(m);
+  }
+}

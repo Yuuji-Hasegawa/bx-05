@@ -1,0 +1,63 @@
+@use '../settings' as setting;
+.c-link {
+  display: block;
+  font-weight: setting.fontweight(b);
+  &\:tag {
+    font-weight: setting.fontweight(m);
+    display: inline-flex;
+    &:before {
+      content: '#';
+      margin-right: setting.spaces(2xs);
+    }
+  }
+  &\:breadcrumb {
+    display: inline-block;
+    padding: setting.spaces(xs);
+    font-size: setting.fontsize(xs);
+    font-weight: setting.fontweight(b);
+  }
+  &\:inline {
+    display: inline-block;
+    text-decoration: underline;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+  }
+  &\:ftNav {
+    color: setting.lightcolor(bg);
+    font-weight: setting.fontweight(m);
+    font-family: setting.$font-family-mlt;
+    letter-spacing: -4px;
+    padding: clamp(setting.spaces(s), calc((100vw - 768px) * 999), setting.spaces(base))
+      clamp(setting.spaces(xs), calc((100vw - 1000px) * 999), setting.spaces(m));
+    &:hover,
+    &:focus {
+      color: setting.brandcolor(light);
+    }
+  }
+  &\:bottomCat {
+    align-items: center;
+    margin-top: setting.spaces(base);
+    font-size: setting.fontsize(s);
+    display: inline-flex;
+    gap: setting.spaces(3xs);
+  }
+  &\:sns {
+    line-height: 1;
+    font-size: 1.5rem;
+    color: inherit;
+  }
+  &\:spSns,
+  &\:bottomSns {
+    line-height: 1;
+    font-size: setting.fontsize(l);
+    color: setting.lightcolor(bg);
+    &:hover,
+    &:focus {
+      color: setting.brandcolor(light);
+    }
+  }
+}

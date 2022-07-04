@@ -1,0 +1,63 @@
+@use '../settings' as setting;
+.c-btn {
+  background: setting.brandcolor(base);
+  display: table;
+  padding: setting.spaces(xs) setting.spaces(s);
+  font-weight: setting.fontweight(b);
+  font-size: setting.fontsize(m);
+  appearance: none;
+  border: solid 1px transparent;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  &:hover,
+  &:focus {
+    opacity: 1;
+    color: setting.brandcolor(light);
+    background: setting.brandcolor(dark);
+  }
+  &--submit {
+    padding-left: setting.spaces(m);
+    padding-right: setting.spaces(m);
+    transition: all setting.animes(duration) setting.animes(timing);
+    &:disabled {
+      pointer-events: none;
+      background: var(--c-overlay);
+      color: var(--c-dimmed);
+    }
+  }
+  &\:sliderInner,
+  &\:frontProduct {
+    border: solid 2px setting.lightcolor(bg);
+    background: setting.lightcolor(overlay);
+    margin-top: setting.spaces(m);
+    display: flex;
+    align-items: center;
+    gap: setting.spaces(xs);
+    font-family: setting.$font-family-mlt;
+    letter-spacing: -3px;
+    &:hover,
+    &:focus {
+      background: setting.lightcolor(bg);
+      color: setting.lightcolor(dimmed);
+    }
+  }
+  &\:frontProduct {
+    margin-top: setting.spaces(l);
+    margin-left: auto;
+    margin-right: auto;
+    max-width: max-content;
+  }
+  &\:topicList,
+  &\:envelop {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    max-width: max-content;
+    align-items: center;
+    gap: setting.spaces(xs);
+  }
+  &\:copy {
+    flex-shrink: 0;
+  }
+}

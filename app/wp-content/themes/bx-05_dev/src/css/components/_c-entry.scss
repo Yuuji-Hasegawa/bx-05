@@ -1,0 +1,106 @@
+@use '../settings' as setting;
+.c-entry {
+  line-height: setting.lineheight(body);
+  h2 {
+    font-weight: setting.fontweight(b);
+    line-height: setting.lineheight(heading);
+    font-size: clamp(setting.fontsize(l), calc((100vw - 650px) * 999), setting.fontsize(xl));
+    & + * {
+      margin-top: setting.spaces(l);
+    }
+  }
+  h3 {
+    font-weight: setting.fontweight(b);
+    line-height: setting.lineheight(heading);
+    color: #fff;
+    background: setting.brandcolor(base);
+    padding: setting.spaces(xs);
+    font-size: clamp(setting.fontsize(m), calc((100vw - 650px) * 999), setting.fontsize(l));
+    margin: setting.spaces(m) 0;
+    &\:first {
+      margin-top: 0;
+    }
+  }
+  a {
+    display: inline-block;
+    text-decoration: underline;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+    &.c-link\:redume {
+      display: block;
+      text-decoration: none;
+    }
+  }
+}
+.c-insert-img {
+  margin: setting.spaces(base) 0;
+}
+.c-author-pict {
+  width: 100px;
+  margin: 0 auto;
+}
+.c-author-name {
+  font-weight: setting.fontweight(b);
+  font-size: setting.fontsize(m);
+  display: table;
+  margin: auto;
+  width: min(calc((100vw - 540px) * 999), 100%);
+  min-width: max-content;
+}
+.c-front-box {
+  padding-top: setting.spaces(l);
+  padding-bottom: setting.spaces(l);
+  &\:borderBottom {
+    border-bottom: solid 1px var(--c-separator);
+  }
+  &\:product {
+    background: linear-gradient(to bottom, setting.brandcolor(dark) 0%, setting.darkcolor(bg) 100%);
+  }
+}
+.c-redume {
+  margin-bottom: setting.spaces(base);
+  padding: setting.spaces(base) setting.spaces(base) 0 setting.spaces(base);
+  border: solid 1px var(--c-separator);
+}
+.c-author-box {
+  padding: setting.spaces(base);
+  border: solid 1px var(--c-separator);
+  background: var(--c-overlay);
+  margin-bottom: setting.spaces(l);
+  color: var(--c-dimmed);
+}
+.swiper {
+  & .swiper-pagination-bullet {
+    background: setting.lightcolor(dimmed);
+  }
+  & .swiper-pagination-bullet-active {
+    background: setting.lightcolor(bg);
+  }
+}
+.swiper-slide {
+  position: relative;
+  max-height: 450px;
+}
+.c-map-embed {
+  line-height: 1;
+  position: relative;
+  & > iframe {
+    filter: grayscale(100%);
+    display: block;
+  }
+}
+.c-campaign-badge {
+  background: setting.brandcolor(base);
+  color: #fff;
+  line-height: setting.lineheight(heading);
+  padding: setting.spaces(2xs) setting.spaces(xs);
+  max-width: max-content;
+  &\:end {
+    background: var(--c-overlay);
+    color: var(--c-dimmed);
+  }
+}

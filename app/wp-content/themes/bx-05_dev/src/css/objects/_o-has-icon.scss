@@ -1,0 +1,96 @@
+@use '../settings' as setting;
+@use '../tools' as tool;
+
+.o-has-icon {
+  display: inline-flex;
+  align-items: baseline;
+  gap: setting.spaces(3xs);
+  &\:center,
+  &\:goList,
+  &\:time,
+  &\:menuBtn,
+  &\:closeBtn,
+  &\:comment {
+    align-items: center;
+  }
+  &\:xs,
+  &\:goList {
+    gap: setting.spaces(xs);
+  }
+  &\:xxs,
+  &\:menuBtn,
+  &\:closeBtn {
+    gap: setting.spaces(2xs);
+  }
+  &\:s {
+    gap: setting.spaces(s);
+  }
+  &\:goList {
+    font-weight: setting.fontweight(b);
+    line-height: 1;
+    margin-left: auto;
+    display: flex;
+    width: max-content;
+  }
+  &\:time {
+    line-height: 1;
+    font-size: setting.fontsize(xs);
+    color: var(--c-dimmed);
+  }
+  &\:redume {
+    display: flex;
+    font-weight: setting.fontweight(b);
+    background: var(--c-overlay);
+    padding: setting.spaces(xs) setting.spaces(base);
+    margin: calc(setting.spaces(base) * -1) calc(setting.spaces(base) * -1) 0 calc(setting.spaces(base) * -1);
+    position: relative;
+    box-sizing: content-box;
+    width: 100%;
+    cursor: pointer;
+    align-items: center;
+  }
+  &\:redume-is-open {
+    margin-bottom: setting.spaces(base);
+    border-bottom: solid 1px var(--c-separator);
+  }
+  &\:menuBtn,
+  &\:closeBtn {
+    line-height: 1;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 10px 0;
+    transition: all setting.animes(duration) setting.animes(timing);
+    @include tool.min-screen(768px) {
+      display: none;
+    }
+  }
+  &\:closeBtn {
+    color: setting.lightcolor(bg);
+    &:hover,
+    &:focus {
+      color: setting.brandcolor(light);
+    }
+  }
+  &\:comment {
+    line-height: 1;
+    color: setting.brandcolor(base);
+    font-weight: setting.fontweight(m);
+  }
+}
+.c-redume-marker {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform setting.animes(duration) setting.animes(timing);
+  &\:is-open {
+    transform: translateY(-50%) rotate(180deg);
+  }
+}
+.c-comment-icon {
+  color: var(--c-dimmed);
+}
+.c-comment-count {
+  font-weight: setting.fontweight(b);
+  font-size: setting.fontsize(m);
+}

@@ -1,0 +1,127 @@
+@use '../settings' as setting;
+.o-stack {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  &\:xxs,
+  &\:bottomDetail,
+  &\:productLink {
+    & > * + * {
+      margin-top: setting.spaces(2xs);
+    }
+  }
+  &\:xs,
+  &\:topicFooter {
+    & > * + * {
+      margin-top: setting.spaces(xs);
+    }
+  }
+  &\:s {
+    & > * + * {
+      margin-top: setting.spaces(s);
+    }
+  }
+  &\:base {
+    & > * + * {
+      margin-top: setting.spaces(base);
+    }
+  }
+  &\:m,
+  &\:news,
+  &\:review {
+    & > * + * {
+      margin-top: setting.spaces(m);
+    }
+  }
+  &\:announce {
+    font-size: setting.fontsize(xs);
+    color: var(--c-dimmed);
+    > li {
+      position: relative;
+      padding-left: setting.spaces(base);
+      &:before {
+        content: '※';
+        position: absolute;
+        left: 0;
+      }
+    }
+  }
+  &\:news {
+    margin-bottom: setting.spaces(m);
+  }
+  &\:topicFooter {
+    font-size: setting.fontsize(xs);
+    color: var(--c-dimmed);
+  }
+  &\:bottomDetail {
+    text-align: left;
+    flex-shrink: 0;
+    max-width: calc(100% - 107px - setting.spaces(xs));
+  }
+  &\:productLink {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    padding: setting.spaces(xs) setting.spaces(base);
+    bottom: 0;
+    background: setting.lightcolor(dimmed);
+    color: setting.lightcolor(bg);
+    line-height: setting.lineheight(heading);
+  }
+  &\:review {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: setting.itemsize(content);
+  }
+}
+.c-product-name {
+  font-weight: setting.fontweight(m);
+  font-size: setting.fontsize(m);
+}
+.c-product-price {
+  font-weight: setting.fontweight(b);
+  font-size: setting.fontsize(l);
+}
+.c-review-item {
+  background: var(--c-overlay);
+  padding: setting.spaces(base);
+}
+.c-review-star {
+  display: flex;
+  gap: setting.spaces(2xs);
+  align-items: center;
+  line-height: 1;
+  margin: setting.spaces(2xs) 0;
+  &\:total {
+    font-size: clamp(setting.fontsize(m), calc((100vw - 650px) * 999), setting.fontsize(l));
+    margin: 0;
+  }
+  > svg {
+    color: var(--c-dimmed);
+  }
+  &[data-rate='1'] {
+    > svg:first-of-type {
+      color: setting.$rating;
+    }
+  }
+  &[data-rate='2'] {
+    > svg:nth-of-type(-n + 2) {
+      color: setting.$rating;
+    }
+  }
+  &[data-rate='3'] {
+    > svg:nth-of-type(-n + 3) {
+      color: setting.$rating;
+    }
+  }
+  &[data-rate='4'] {
+    > svg:nth-of-type(-n + 4) {
+      color: setting.$rating;
+    }
+  }
+  &[data-rate='5'] {
+    > svg {
+      color: setting.$rating;
+    }
+  }
+}

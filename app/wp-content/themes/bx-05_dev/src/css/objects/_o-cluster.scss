@@ -1,0 +1,106 @@
+@use '../settings' as setting;
+@use '../tools' as tool;
+
+.o-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: setting.spaces(base);
+  &\:center,
+  &\:ftNav,
+  &\:totalReview,
+  &\:bottomSns {
+    justify-content: center;
+  }
+  &\:s,
+  &\:sns {
+    gap: setting.spaces(s);
+  }
+  &\:xs,
+  &\:ftNav,
+  &\:reviewer,
+  &\:totalReview {
+    gap: setting.spaces(xs);
+  }
+  &\:xxs {
+    gap: setting.spaces(2xs);
+  }
+  &\:ftNav {
+    @include tool.max-screen(767px) {
+      justify-content: flex-start;
+    }
+  }
+  &__ftItem {
+    flex-shrink: 0;
+    @include tool.max-screen(767px) {
+      width: calc((100% - setting.spaces(xs) * 2) / 2);
+    }
+    @include tool.max-screen(499px) {
+      width: 100%;
+    }
+  }
+  &\:bottomSns {
+    margin-bottom: setting.spaces(l);
+  }
+  &\:sns {
+    margin-top: setting.spaces(xs);
+  }
+  &\:spSns {
+    gap: setting.spaces(l);
+    justify-content: center;
+  }
+  &\:reviewer {
+    align-items: center;
+    margin-bottom: setting.spaces(xs);
+  }
+  &\:totalReview {
+    align-items: center;
+    max-width: setting.itemsize(content);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: setting.spaces(m);
+  }
+  &\:gallery {
+    margin: setting.spaces(xl) 0;
+    > li {
+      flex-shrink: 0;
+      width: calc((100% - setting.spaces(base) * 2) / 3);
+    }
+  }
+}
+.c-review-pict {
+  width: 32px;
+  flex-shrink: 0;
+  > .o-frame > * {
+    border-radius: 50%;
+  }
+}
+.c-review-name,
+.c-review-time {
+  font-size: setting.fontsize(xs);
+}
+.c-review-name {
+  font-weight: setting.fontweight(b);
+}
+.c-review-time {
+  font-weight: setting.fontweight(m);
+  color: var(--c-dimmed);
+}
+.c-review-body {
+  line-height: setting.lineheight(body);
+  -webkit-line-clamp: 3;
+  display: -webkit-box;
+  overflow: hidden;
+  max-height: calc(setting.fontsize(s) * setting.lineheight(body) * 3);
+  text-overflow: ellipsis;
+  transition: max-height setting.animes(duration) setting.animes(timing);
+  &\:is-view {
+    max-height: none;
+    display: block;
+  }
+}
+.c-total-rating {
+  font-size: setting.fontsize(l);
+  font-weight: setting.fontweight(b);
+  line-height: setting.lineheight(heading);
+  color: setting.brandcolor(base);
+}

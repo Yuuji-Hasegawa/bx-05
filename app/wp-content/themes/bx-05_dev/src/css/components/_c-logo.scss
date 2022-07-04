@@ -1,0 +1,22 @@
+@use '../settings' as setting;
+@use '../tools' as tool;
+
+.c-logo {
+  line-height: 1;
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: clamp(setting.spaces(xs), calc((100vw - 768px) * 999), setting.spaces(m));
+  margin-bottom: setting.spaces(xs);
+  font-size: clamp(38px, calc((100vw - 768px) * 999), setting.fontsize(2xl));
+  @include tool.max-screen(767px) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+.c-footer-logo {
+  line-height: 1;
+  display: table;
+  margin: setting.spaces(s) auto setting.spaces(l);
+  font-size: setting.fontsize(2xl);
+}

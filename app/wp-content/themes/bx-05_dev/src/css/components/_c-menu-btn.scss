@@ -1,0 +1,69 @@
+@use '../settings' as setting;
+@use '../tools' as tool;
+.c-head-nav {
+  @include tool.max-screen(767px) {
+    display: none;
+  }
+}
+.c-gnav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  &__item {
+    &\:sp {
+      width: 100%;
+    }
+  }
+  &__link {
+    display: block;
+    font-weight: setting.fontweight(m);
+    font-family: setting.$font-family-mlt;
+    letter-spacing: -4px;
+    padding: clamp(setting.spaces(s), calc((100vw - 768px) * 999), setting.spaces(base))
+      clamp(setting.spaces(xs), calc((100vw - 1000px) * 999), setting.spaces(m));
+    &\:sp {
+      text-align: center;
+      color: setting.lightcolor(bg);
+      &:hover,
+      &:focus {
+        color: setting.brandcolor(light);
+      }
+    }
+  }
+}
+.c-menuBtn-label,
+.c-closeBtn-label {
+  font-size: setting.fontsize(xs);
+  line-height: setting.lineheight(heading);
+  font-family: setting.$font-family-mlt;
+  font-weight: setting.fontweight(m);
+  letter-spacing: -3px;
+}
+.c-closeBtn-label {
+  letter-spacing: -3.8px;
+}
+.c-sp-menu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  z-index: 999;
+  background: linear-gradient(to bottom, setting.brandcolor(dark) 0%, setting.darkcolor(bg) 100%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s setting.animes(timing);
+  &\:is-view {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+}
+body.is-fixed {
+  position: fixed;
+  min-height: 100vh;
+  overflow: hidden;
+  min-width: 100vw;
+}

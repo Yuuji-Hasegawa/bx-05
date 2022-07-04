@@ -1,0 +1,54 @@
+@use '../settings' as setting;
+.o-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  &\:news {
+    gap: setting.spaces(xs);
+    align-items: flex-start;
+    > * {
+      font-weight: setting.fontweight(b);
+    }
+    > * + * {
+      flex-grow: 1;
+      flex-basis: calc((540px - 100vw) * 999);
+    }
+  }
+  &\:frontTopic {
+    margin-bottom: setting.spaces(m);
+    justify-content: flex-start;
+    gap: setting.spaces(m) setting.spaces(base);
+    > * {
+      flex-shrink: 0;
+      width: clamp(calc(50% - (setting.spaces(base) / 2)), calc((768px - 100vw) * 999), 100%);
+      max-width: max(calc(1000px - 100vw) * 999, calc((100% - setting.spaces(base) * 3) / 4));
+    }
+  }
+  &\:halfQuart {
+    > * {
+      flex-shrink: 0;
+      width: 50%;
+      max-width: max(calc(810px - 100vw) * 999, 25%);
+    }
+  }
+  &\:author {
+    gap: setting.spaces(s);
+    align-items: flex-start;
+    > * + * {
+      flex-grow: 1;
+      flex-basis: calc((540px - 100vw) * 999);
+    }
+  }
+  &\:product {
+    justify-content: flex-start;
+    gap: setting.spaces(m) setting.spaces(base);
+    > * {
+      flex-shrink: 0;
+      width: clamp(calc(50% - (setting.spaces(base) / 2)), calc((768px - 100vw) * 999), 100%);
+      max-width: max(calc(1000px - 100vw) * 999, calc((100% - setting.spaces(base) * 3) / 4));
+    }
+  }
+}
+.c-cat-link {
+  color: inherit;
+  font-weight: setting.fontweight(m);
+}

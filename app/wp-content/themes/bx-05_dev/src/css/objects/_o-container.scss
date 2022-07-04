@@ -1,0 +1,38 @@
+@use '../settings' as setting;
+@use '../tools' as tool;
+
+.o-container {
+  box-sizing: content-box;
+  padding-left: setting.spaces(base);
+  padding-right: setting.spaces(base);
+  margin-left: auto;
+  margin-right: auto;
+  &\:header {
+    position: relative;
+    padding: 0px clamp(setting.spaces(2xs), calc(3.5vw - setting.spaces(base)), setting.spaces(base));
+    @include tool.max-screen(767px) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  &\:innerWrap,
+  .c-inner-wrap {
+    max-width: setting.itemsize(content);
+  }
+  &\:main,
+  &\:underPage {
+    max-width: setting.itemsize(wrapper);
+  }
+  &\:footer {
+    text-align: center;
+    background: linear-gradient(to bottom, setting.brandcolor(dark) 0%, setting.darkcolor(bg) 100%);
+    font-size: setting.fontsize(xs);
+    color: setting.lightcolor(bg);
+    padding-bottom: setting.spaces(base);
+  }
+}
+.c-inner-wrap {
+  margin-left: auto;
+  margin-right: auto;
+}
