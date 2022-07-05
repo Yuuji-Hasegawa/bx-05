@@ -77,7 +77,7 @@
                     </dt>
                     <dd class="c-plan-content">
                         説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文
-                        <a href="<?php echo home_url('/plan#planA');?>"
+                        <a href="<?php echo home_url('/');?>plan#plan-a"
                             class="c-link c-link:planInner">詳しく見る</a>
                     </dd>
                 </dl>
@@ -98,7 +98,7 @@
                     </dt>
                     <dd class="c-plan-content">
                         説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文
-                        <a href="<?php echo home_url('/plan#planB');?>"
+                        <a href="<?php echo home_url('/');?>plan#plan-b"
                             class="c-link c-link:planInner">詳しく見る</a>
                     </dd>
                 </dl>
@@ -119,7 +119,7 @@
                     </dt>
                     <dd class="c-plan-content">
                         説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文
-                        <a href="<?php echo home_url('/plan#planC');?>"
+                        <a href="<?php echo home_url('/');?>plan#plan-c"
                             class="c-link c-link:planInner">詳しく見る</a>
                     </dd>
                 </dl>
@@ -140,7 +140,7 @@
                     </dt>
                     <dd class="c-plan-content">
                         説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文
-                        <a href="<?php echo home_url('/plan#planD');?>"
+                        <a href="<?php echo home_url('/');?>plan#plan-d"
                             class="c-link c-link:planInner">詳しく見る</a>
                     </dd>
                 </dl>
@@ -186,7 +186,7 @@
         <?php endif;?>
     </div>
 </div>
-<div class="c-front-box c-front-box:border-bottom">
+<div class="c-front-box c-front-box:borderBottom">
     <h2 class="c-heading c-heading:mrn">Review</h2>
     <div class="o-container o-container:main">
         <?php echo get_total_review();

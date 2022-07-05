@@ -16,7 +16,7 @@
             <li>注意書き</li>
         </ul>
     </div>
-    <div class="o-switcher o-switcher:media u-mb-l" id="planA">
+    <div class="o-switcher o-switcher:media u-mb-l" id="plan-a">
         <div class="c-media-pict">
             <picture class="o-frame o-frame:v">
                 <source type="image/avif"
@@ -34,7 +34,7 @@
             </p>
         </div>
     </div>
-    <div class="o-switcher o-switcher:media u-mb-l" id="planB">
+    <div class="o-switcher o-switcher:media u-mb-l" id="plan-b">
         <div class="c-media-pict">
             <picture class="o-frame o-frame:v">
                 <source type="image/avif"
@@ -52,7 +52,7 @@
             </p>
         </div>
     </div>
-    <div class="o-switcher o-switcher:media u-mb-l" id="planC">
+    <div class="o-switcher o-switcher:media u-mb-l" id="plan-c">
         <div class="c-media-pict">
             <picture class="o-frame o-frame:v">
                 <source type="image/avif"
@@ -70,7 +70,7 @@
             </p>
         </div>
     </div>
-    <div class="o-switcher o-switcher:media u-mb-l" id="planD">
+    <div class="o-switcher o-switcher:media u-mb-l" id="plan-d">
         <div class="c-media-pict">
             <picture class="o-frame o-frame:v">
                 <source type="image/avif"
