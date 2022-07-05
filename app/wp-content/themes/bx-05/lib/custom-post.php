@@ -72,40 +72,6 @@ function create_post_type()
         'menu_icon'   => 'dashicons-star-half',
         )
     );
-    register_post_type(
-        'product', /* post-type */
-        array(
-        'labels' => array(
-            'name' => '商品',
-            'singular_name' => '商品',
-            'add_new_item' => '商品の新規追加',
-            'edit_item' => '商品の編集'
-        ),
-        'has_archive' => true,
-        'public' => true,
-        'show_ui' => true,
-        'menu_position' => 15,
-        'supports' => array('editor','title','thumbnail'),
-        'menu_icon'   => 'dashicons-cart',
-        )
-    );
-    register_post_type(
-        'campaign', /* post-type */
-        array(
-        'labels' => array(
-            'name' => 'キャンペーン',
-            'singular_name' => 'キャンペーン',
-            'add_new_item' => 'キャンペーンの新規追加',
-            'edit_item' => 'キャンペーンの編集'
-        ),
-        'has_archive' => true,
-        'public' => true,
-        'show_ui' => true,
-        'menu_position' => 17,
-        'supports' => array('editor','title','thumbnail'),
-        'menu_icon'   => 'dashicons-tickets',
-        )
-    );
 }
 function my_redirect_404()
 {
@@ -120,10 +86,6 @@ function custom_post_type_link($link, $post)
 {
     if ($post->post_type === 'news') {
         return home_url('/news/' . $post->ID);
-    } elseif ($post->post_type === 'product') {
-        return home_url('/product/' . $post->ID);
-    } elseif ($post->post_type === 'campaign') {
-        return home_url('/campaign/' . $post->ID);
     } else {
         return $link;
     }
@@ -137,22 +99,6 @@ function news_rewrite_rules_array($rules)
     return $new_rewrite_rules + $rules;
 }
 add_filter('rewrite_rules_array', 'news_rewrite_rules_array');
-function product_rewrite_rules_array($rules)
-{
-    $product_rewrite_rules = array(
-      'product/([0-9]+)/?$' => 'index.php?post_type=product&p=$matches[1]',
-    );
-    return $product_rewrite_rules + $rules;
-}
-add_filter('rewrite_rules_array', 'product_rewrite_rules_array');
-function campaign_rewrite_rules_array($rules)
-{
-    $campaign_rewrite_rules = array(
-      'campaign/([0-9]+)/?$' => 'index.php?post_type=campaign&p=$matches[1]',
-    );
-    return $campaign_rewrite_rules + $rules;
-}
-add_filter('rewrite_rules_array', 'campaign_rewrite_rules_array');
 function post_has_archive($args, $post_type)
 {
     if ('post' == $post_type) {
@@ -196,8 +142,6 @@ function add_my_box()
     $addtype = array( 'post', 'page', 'news', 'product', 'campaign' );
     add_meta_box('meta_info', 'SEO', 'meta_info_form', $addtype, 'side');
     add_meta_box('meta_review', '口コミ情報', 'meta_review_form', 'review', 'normal');
-    add_meta_box('meta_product', '商品情報', 'meta_product_form', 'product', 'normal');
-    add_meta_box('meta_campaign', 'キャンペーン情報', 'meta_campaign_form', 'campaign', 'normal');
 }
 add_action('admin_menu', 'add_my_box');
 
@@ -253,33 +197,6 @@ function meta_review_form()
 <?php
 }
 
-function meta_product_form()
-{
-    global $post;
-    $product_price = get_post_meta($post->ID, 'product_price', true); ?>
-<h3 style="font-size: 14px; margin: 0 0 8px;">価格（税込価格を数値で入力してください）</h3>
-<input type="text" name="product_price"
-    value="<?php echo esc_html($product_price); ?>"
-    style="width: 100%;margin: 0 0 8px;" />
-<?php
-}
-
-function meta_campaign_form()
-{
-    global $post;
-    $campaign_start = get_post_meta($post->ID, 'campaign_start', true);
-    $campaign_end = get_post_meta($post->ID, 'campaign_end', true); ?>
-<h3 style="font-size: 14px; margin: 0 0 8px;">開始日（YYYY-mm-dd形式で入力してください）</h3>
-<input type="text" name="campaign_start"
-    value="<?php echo esc_html($campaign_start); ?>"
-    style="width: 100%;margin: 0 0 8px;" />
-<h3 style="font-size: 14px; margin: 0 0 8px;">終了日（YYYY-mm-dd形式で入力してください）</h3>
-<input type="text" name="campaign_end"
-    value="<?php echo esc_html($campaign_end); ?>"
-    style="width: 100%;margin: 0 0 8px;" />
-<?php
-}
-
 function save_meta_info($post_id)
 {
     if (isset($_POST['meta_keywords'])) {
@@ -296,21 +213,6 @@ function save_meta_info($post_id)
         update_post_meta($post_id, 'review_rate', $_POST['review_rate']);
     } else {
         delete_post_meta($post_id, 'review_rate');
-    }
-    if (isset($_POST['product_price'])) {
-        update_post_meta($post_id, 'product_price', $_POST['product_price']);
-    } else {
-        delete_post_meta($post_id, 'product_price');
-    }
-    if (isset($_POST['campaign_start'])) {
-        update_post_meta($post_id, 'campaign_start', $_POST['campaign_start']);
-    } else {
-        delete_post_meta($post_id, 'campaign_start');
-    }
-    if (isset($_POST['campaign_end'])) {
-        update_post_meta($post_id, 'campaign_end', $_POST['campaign_end']);
-    } else {
-        delete_post_meta($post_id, 'campaign_end');
     }
 }
 add_action('save_post', 'save_meta_info');

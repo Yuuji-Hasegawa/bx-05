@@ -1,64 +1,138 @@
 @use '../settings' as setting;
 @use '../tools' as tool;
-.c-head-nav {
-  @include tool.max-screen(767px) {
-    display: none;
-  }
+.c-header-end {
+	position: relative;
 }
-.c-gnav {
+.c-search {
+	width: 40px;
+	height: 40px;
+	transition: width setting.animes(duration) setting.animes(timing);
+	cursor: pointer;
+	color: transparent;
+	font-size: setting.fontsize(s);
+	line-height: setting.lineheight(body);
+	border-radius: 80px;
+	position: absolute;
+	right: 0;
+	top: 50%;
+	border: 1px solid transparent;
+	transform: translateY(-50%);
+	@include tool.placeholder(transparent);
+	+ label {
+		position: absolute;
+		right: 10px;
+		top: 50%;
+		transform: translateY(-50%);
+		font-size: 24px;
+		color: setting.lightcolor(bg);
+		pointer-events: none;
+    line-height: 1;
+	}
+	&:focus {
+		width: calc(100vw - 1rem);
+		max-width: max(calc((540px - 100vw) * 999), 350px);
+		padding: 8px 44px 8px 16px;
+		background: setting.lightcolor(input);
+		border-color: setting.brandcolor(base);
+		color: setting.lightcolor(txt);
+		@include tool.placeholder(setting.lightcolor(separator));
+		+ label {
+			color: setting.brandcolor(base);
+		}
+	}
+}
+.c-menu-btn {
+  position: fixed;
+  right: clamp(setting.spaces(2xs), calc(3.5vw - setting.spaces(base)), setting.spaces(base));
+  bottom: clamp(calc(93px + setting.spaces(base)), calc((448px - 100vw) * 999), calc(155px + setting.spaces(base)));
+  z-index: 10000;
+  width: 60px;
+  height: 60px;
+  font-size: 32px;
+  color: setting.lightcolor(bg);
+  background: rgba(setting.brandcolor(dark),.7);
+  border-radius: 50%;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  &__item {
-    &\:sp {
-      width: 100%;
-    }
-  }
-  &__link {
-    display: block;
-    font-weight: setting.fontweight(m);
-    font-family: setting.$font-family-mlt;
-    letter-spacing: -4px;
-    padding: clamp(setting.spaces(s), calc((100vw - 768px) * 999), setting.spaces(base))
-      clamp(setting.spaces(xs), calc((100vw - 1000px) * 999), setting.spaces(m));
-    &\:sp {
-      text-align: center;
-      color: setting.lightcolor(bg);
-      &:hover,
-      &:focus {
-        color: setting.brandcolor(light);
-      }
-    }
+  align-items: center;
+  cursor: pointer;
+  transition: all setting.animes(duration) setting.animes(timing);
+  box-shadow: 0 0px 2px setting.brandcolor(dark);
+  &:focus,
+  &:hover {
+    background: rgba(setting.lightcolor(bg),.7);
+    color: setting.lightcolor(dimmed);
   }
 }
-.c-menuBtn-label,
-.c-closeBtn-label {
-  font-size: setting.fontsize(xs);
-  line-height: setting.lineheight(heading);
-  font-family: setting.$font-family-mlt;
-  font-weight: setting.fontweight(m);
-  letter-spacing: -3px;
-}
-.c-closeBtn-label {
-  letter-spacing: -3.8px;
-}
-.c-sp-menu {
+.c-menu {
   position: fixed;
   left: 0;
-  top: 0;
+  bottom: -100%;
   width: 100%;
   height: 100%;
   overflow-y: auto;
-  z-index: 999;
-  background: linear-gradient(to bottom, setting.brandcolor(dark) 0%, setting.darkcolor(bg) 100%);
-  opacity: 0;
-  visibility: hidden;
+  z-index: 10001;
+  background: setting.brandcolor(dark);
   pointer-events: none;
-  transition: opacity 0.2s setting.animes(timing);
-  &\:is-view {
-    opacity: 1;
-    visibility: visible;
+  transition: bottom 0.2s setting.animes(timing);
+  &\:is-open {
+    bottom: 0;
     pointer-events: auto;
+    transition: bottom 0.2s setting.animes(timing);
+  }
+  &__header {
+    padding: 6px clamp(setting.spaces(2xs), calc(3.5vw - setting.spaces(base)), setting.spaces(base));
+    display: flex;
+		align-items: center;
+    position: relative;
+  }
+  &__logo {
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1;
+    font-size: 48px;
+  }
+  &__body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: calc(100% - 60px);
+    overflow-y: auto;
+    padding: 0 setting.spaces(base) setting.spaces(base);
+  }
+  &__address {
+    text-align: center;
+    color: setting.lightcolor(bg);
+    margin-bottom: setting.spaces(base);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: setting.spaces(base);
+    font-size: setting.fontsize(xs);
+  }
+}
+.c-close-btn {
+  position: absolute;
+  right: clamp(setting.spaces(2xs), calc(3.5vw - setting.spaces(base)), setting.spaces(base));
+  display: flex;
+  align-items: center;
+  gap: setting.spaces(2xs);
+  line-height: 1;
+  font-size: 24px;
+  cursor: pointer;
+  color: setting.lightcolor(bg);
+    &:hover,
+    &:focus {
+      color: setting.brandcolor(light);
+    }
+  &__label {
+    font-family: setting.$font-family-mrn;
+    position: relative;
+    top: 4px;
+    line-height: setting.lineheight(heading);
+    font-size: setting.fontsize(m);
+    font-weight: setting.fontweight(b);
   }
 }
 body.is-fixed {

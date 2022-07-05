@@ -26,7 +26,7 @@ function my_script_styles()
     wp_add_inline_style('sliderCss', $sliderCss);
     if (!is_admin()) {
         wp_deregister_script('jquery');
-        if (is_page('inquiry')) {
+        if (is_page('inquiry') || is_page('request')) {
             wp_register_script('jquery', 'https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js', array(), '3.3.1', true);
             wp_enqueue_script('jquery');
             if (function_exists('wpcf7_enqueue_scripts')) {
@@ -41,7 +41,7 @@ function my_script_styles()
 add_action('wp_enqueue_scripts', 'my_script_styles');
 function recatcha_hidden()
 {
-    if (is_page('inquiry')) {
+    if (is_page('inquiry')|| is_page('request')) {
         return;
     }
     wp_deregister_script('google-recaptcha');

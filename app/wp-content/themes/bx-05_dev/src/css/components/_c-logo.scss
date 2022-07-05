@@ -1,22 +1,24 @@
 @use '../settings' as setting;
 @use '../tools' as tool;
 
+.c-logo,
+.c-menu-logo,
+.c-footer-logo {
+  line-height: setting.lineheight(heading);  
+  font-family: setting.$font-family-mrn;
+  color: setting.lightcolor(bg);
+  padding-top: 10px;
+}
 .c-logo {
-  line-height: 1;
-  display: table;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: clamp(setting.spaces(xs), calc((100vw - 768px) * 999), setting.spaces(m));
-  margin-bottom: setting.spaces(xs);
-  font-size: clamp(38px, calc((100vw - 768px) * 999), setting.fontsize(2xl));
-  @include tool.max-screen(767px) {
-    margin-left: 0;
-    margin-right: 0;
-  }
+  font-size: setting.fontsize(l);
+}
+.c-menu-logo,
+.c-footer-logo {
+  font-size: clamp(setting.fontsize(l), calc((100vw - 500px) * 999), setting.fontsize(xl));
+  font-weight: setting.fontweight(b);
+  margin-bottom: setting.spaces(l);
 }
 .c-footer-logo {
-  line-height: 1;
   display: table;
-  margin: setting.spaces(s) auto setting.spaces(l);
-  font-size: setting.fontsize(2xl);
+  margin: setting.spaces(m) auto;
 }

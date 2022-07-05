@@ -53,28 +53,32 @@
     margin-bottom: setting.spaces(base);
     border-bottom: solid 1px var(--c-separator);
   }
-  &\:menuBtn,
-  &\:closeBtn {
+  &\:comment {
     line-height: 1;
-    cursor: pointer;
-    font-size: 24px;
-    padding: 10px 0;
-    transition: all setting.animes(duration) setting.animes(timing);
-    @include tool.min-screen(768px) {
-      display: none;
-    }
+    color: setting.brandcolor(base);
+    font-weight: setting.fontweight(m);
   }
-  &\:closeBtn {
+  &\:floatTel,
+  &\:menuTel,
+  &\:tel {
+    justify-content: center;
+    align-items: center;
+    margin-bottom: setting.spaces(2xs);
+    font-weight: setting.fontweight(m);
+    font-size: clamp(28px, calc((100vw - 650px) * 999), setting.fontsize(l));
+  }
+  &\:bottomTel {
+    justify-content: center;
+    align-items: center;
+    font-weight: setting.fontweight(m);
+  }
+  &\:menuTel,
+  &\:bottomTel {
     color: setting.lightcolor(bg);
     &:hover,
     &:focus {
       color: setting.brandcolor(light);
     }
-  }
-  &\:comment {
-    line-height: 1;
-    color: setting.brandcolor(base);
-    font-weight: setting.fontweight(m);
   }
 }
 .c-redume-marker {
@@ -93,4 +97,15 @@
 .c-comment-count {
   font-weight: setting.fontweight(b);
   font-size: setting.fontsize(m);
+  font-family: setting.$font-family-mrn;
+  position: relative;
+  top: 4px;
+}
+.c-bottom-telIcon,
+.c-menu-telIcon {
+  line-height: 1;
+  font-size: clamp(24px, calc((100vw - 650px) * 999), 26px);
+  &\:bottom {
+    font-size: inherit;
+  }
 }

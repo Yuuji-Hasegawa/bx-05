@@ -45,55 +45,6 @@ function get_front_content()
         return '<p>コンテンツはまだありません。</p>';
     }
 }
-function get_front_product()
-{
-    $output = '';
-    $args = array(
-        'post_type' => 'product',
-        'no_found_rows' => true,
-        'posts_per_page' => 8,
-    );
-    $the_query = new WP_Query($args);
-    if ($the_query->have_posts()) {
-        $output .= '<ul class="o-switcher o-switcher:product">';
-        while ($the_query->have_posts()) {
-            $the_query->the_post();
-            $price = number_format(intval(get_post_meta(get_the_ID(), 'product_price', true)));
-            $price ? $price = '&yen' . $price : $price = '時価';
-            $output .= '<li>
-                <a class="o-cover o-cover:productLink" href="' . get_the_permalink() .'">
-                    <span class="o-stack o-stack:productLink">
-                        <span class="c-product-name">' . get_the_title() . '</span>
-                        <span class="c-product-price">' . $price . '</span>
-                    </span>
-                    <picture class="o-frame o-frame:square">';
-            if (has_post_thumbnail()) {
-                $output .= '<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="' . get_the_post_thumbnail_url(get_the_ID(), 'full') .'" decoding="async" alt="" width="100%" height="100%" />';
-            } else {
-                $output .= '<source data-srcset="' . get_template_directory_uri() . '/img/thumb.avif" type="image/avif" /><source data-srcset="' . get_template_directory_uri() . '/img/thumb.webp" type="image/webp" /><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="' . get_template_directory_uri() . '/img/thumb.png" alt="" />';
-            }
-            $output .= '</picture></a></li>';
-        }
-        $output .= '</ul>';
-        wp_reset_postdata();
-        $output .= '<a href="' . home_url('/product') .'"
-        class="c-btn c-btn:frontProduct">
-        PRODUCT
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
-            <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc.-->
-            <path
-                d="M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z"
-                fill="currentColor"></path>
-        </svg>
-    </a>';
-    }
-    if ($output) {
-        return $output;
-    } else {
-        return '<p>商品はまだありません。</p>';
-    }
-}
-
 function get_front_review()
 {
     $output = '';
@@ -161,44 +112,5 @@ function get_front_review()
         return $output;
     } else {
         return '<p>口コミはまだありません。</p>';
-    }
-}
-function get_related_product()
-{
-    global $post;
-    $output = '';
-    $args = array(
-        'post_type' => 'product',
-        'posts_per_page' => 8,
-        'no_found_rows' => true,
-        'orderby' => 'rand',
-        'post__not_in' => array($post->ID),
-    );
-    $the_query = new WP_Query($args);
-    if ($the_query->have_posts()) {
-        $output = '<h3 class="c-min-heading">その他の商品</h3><ul class="o-switcher o-switcher:product u-mb-l">';
-        while ($the_query->have_posts()) {
-            $the_query->the_post();
-            $price = number_format(intval(get_post_meta(get_the_ID(), 'product_price', true)));
-            $price ? $price = '&yen' . $price : $price = '時価';
-            $output .= '<li>
-                <a class="o-cover o-cover:productLink" href="' . get_the_permalink() .'">
-                    <span class="o-stack o-stack:productLink">
-                        <span class="c-product-name">' . get_the_title() . '</span>
-                        <span class="c-product-price">' . $price . '</span>
-                    </span>
-                    <picture class="o-frame o-frame:square">';
-            if (has_post_thumbnail()) {
-                $output .= '<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="' . get_the_post_thumbnail_url(get_the_ID(), 'full') .'" decoding="async" alt="" width="100%" height="100%" />';
-            } else {
-                $output .= '<source data-srcset="' . get_template_directory_uri() . '/img/thumb.avif" type="image/avif" /><source data-srcset="' . get_template_directory_uri() . '/img/thumb.webp" type="image/webp" /><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="' . get_template_directory_uri() . '/img/thumb.png" alt="" />';
-            }
-            $output .= '</picture></a></li>';
-        }
-        wp_reset_postdata();
-        $output .= '</ul>';
-    }
-    if ($output) {
-        return $output;
     }
 }

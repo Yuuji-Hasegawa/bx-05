@@ -7,8 +7,7 @@
   gap: setting.spaces(base);
   &\:center,
   &\:ftNav,
-  &\:totalReview,
-  &\:bottomSns {
+  &\:totalReview {
     justify-content: center;
   }
   &\:s,
@@ -38,15 +37,8 @@
       width: 100%;
     }
   }
-  &\:bottomSns {
-    margin-bottom: setting.spaces(l);
-  }
   &\:sns {
     margin-top: setting.spaces(xs);
-  }
-  &\:spSns {
-    gap: setting.spaces(l);
-    justify-content: center;
   }
   &\:reviewer {
     align-items: center;
@@ -84,6 +76,9 @@
 .c-review-time {
   font-weight: setting.fontweight(m);
   color: var(--c-dimmed);
+  font-family: setting.$font-family-mrn;
+  position: relative;
+  top: 4px;
 }
 .c-review-body {
   line-height: setting.lineheight(body);
@@ -103,4 +98,7 @@
   font-weight: setting.fontweight(b);
   line-height: setting.lineheight(heading);
   color: setting.brandcolor(base);
+  font-family: setting.$font-family-mrn;
+  position: relative;
+  top: 8px;
 }

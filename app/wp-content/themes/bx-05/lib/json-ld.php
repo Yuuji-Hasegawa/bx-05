@@ -21,6 +21,16 @@ function set_bread_json()
             )
         );
         $array = array_merge($array, $notfound);
+    } elseif (is_search()) {
+        $search[] = array(
+            "@type" => "ListItem",
+            "position" => 2,
+            "item" => array(
+                "@id" => esc_url(home_url('/?s=') . get_search_query()),
+                "name" => esc_html('「' . get_search_query() . '」の検索結果')
+            )
+        );
+        $array = array_merge($array, $search);
     } elseif (is_page()) {
         $i = 1;
         if ($post->post_parent != 0) {
@@ -77,26 +87,6 @@ function set_bread_json()
                     "item" => array(
                         "@id" => esc_url(home_url('/review')),
                         "name" => esc_attr('review')
-                    )
-                );
-            $array = array_merge($array, $child);
-        } elseif (is_post_type_archive('product')) {
-            $child[] = array(
-                    "@type" => "ListItem",
-                    "position" => 2,
-                    "item" => array(
-                        "@id" => esc_url(home_url('/product')),
-                        "name" => esc_attr('product')
-                    )
-                );
-            $array = array_merge($array, $child);
-        } elseif (is_post_type_archive('campaign')) {
-            $child[] = array(
-                    "@type" => "ListItem",
-                    "position" => 2,
-                    "item" => array(
-                        "@id" => esc_url(home_url('/campaign')),
-                        "name" => esc_attr('campaign')
                     )
                 );
             $array = array_merge($array, $child);
@@ -191,42 +181,6 @@ function set_bread_json()
                 )
             );
             $array = array_merge($array, $parent, $child);
-        } elseif ('product' == get_post_type()) {
-            $parent[] = array(
-                    "@type" => "ListItem",
-                    "position" => 2,
-                    "item" => array(
-                        "@id" => esc_url(home_url('/product')),
-                        "name" => esc_attr('product')
-                    )
-                );
-            $child[] = array(
-                    "@type" => "ListItem",
-                    "position" => 3,
-                    "item" => array(
-                        "@id" => esc_url(get_permalink($post->ID)),
-                        "name" => esc_html(get_the_title($post->ID))
-                    )
-                );
-            $array = array_merge($array, $parent, $child);
-        } elseif ('campaign' == get_post_type()) {
-            $parent[] = array(
-                    "@type" => "ListItem",
-                    "position" => 2,
-                    "item" => array(
-                        "@id" => esc_url(home_url('/campaign')),
-                        "name" => esc_attr('campaign')
-                    )
-                );
-            $child[] = array(
-                    "@type" => "ListItem",
-                    "position" => 3,
-                    "item" => array(
-                        "@id" => esc_url(get_permalink($post->ID)),
-                        "name" => esc_html(get_the_title($post->ID))
-                    )
-                );
-            $array = array_merge($array, $parent, $child);
         } elseif (is_attachment()) {
             $attachment[] = array(
                 "@type" => "ListItem",
@@ -319,10 +273,6 @@ function set_content_json()
     }
     if ('news' == get_post_type()) {
         $cat_name = 'news';
-    } elseif ('campaign' == get_post_type()) {
-        $cat_name = 'campaign';
-    } elseif ('product' == get_post_type()) {
-        $cat_name = 'product';
     } elseif (get_the_category($post->ID)) {
         $cat = get_the_category($post->ID);
         $cat_name = $cat[0]->cat_name;

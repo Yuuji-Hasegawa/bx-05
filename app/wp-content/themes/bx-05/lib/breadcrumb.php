@@ -17,12 +17,8 @@ function get_breadcrumb()
             $output .= '<li class="c-bread-list__item"><a class="c-bread-list__link" href="' . esc_url(home_url('/news')) . '" aria-current="page">News</a></li>';
         } elseif (is_post_type_archive('gallery')) {
             $output .= '<li class="c-bread-list__item"><a class="c-bread-list__link" href="' . esc_url(home_url('/gallery')) . '" aria-current="page">Gallery</a></li>';
-        } elseif (is_post_type_archive('product')) {
-            $output .= '<li class="c-bread-list__item"><a class="c-bread-list__link" href="' . esc_url(home_url('/product')) . '" aria-current="page">Product</a></li>';
         } elseif (is_post_type_archive('review')) {
             $output .= '<li class="c-bread-list__item"><a class="c-bread-list__link" href="' . esc_url(home_url('/review')) . '" aria-current="page">Review</a></li>';
-        } elseif (is_post_type_archive('campaign')) {
-            $output .= '<li class="c-bread-list__item"><a class="c-bread-list__link" href="' . esc_url(home_url('/campaign')) . '" aria-current="page">Campaign</a></li>';
         } elseif (is_category()) {
             $output .= '<li class="c-bread-list__item"><a class="c-bread-list__link" href="' . home_url('/blog') . '">ブログ</a></li>';
             $cat = get_queried_object();
@@ -42,12 +38,6 @@ function get_breadcrumb()
     } elseif (is_single()) {
         if ('news' == get_post_type()) {
             $output .= '<li class="c-bread-list__item"><a class="c-bread-list__link" href="' . esc_url(home_url('/news')) . '">News</a></li>';
-            $output .= '<li class="c-bread-list__item"><a href="' . esc_url(get_permalink($post->ID)) . '" class="c-bread-list__link" aria-current="page">' . get_the_title($post->ID) . '</a></li>';
-        } elseif ('product' == get_post_type()) {
-            $output .= '<li class="c-bread-list__item"><a class="c-bread-list__link" href="' . esc_url(home_url('/product')) . '">Product</a></li>';
-            $output .= '<li class="c-bread-list__item"><a href="' . esc_url(get_permalink($post->ID)) . '" class="c-bread-list__link" aria-current="page">' . get_the_title($post->ID) . '</a></li>';
-        } elseif ('campaign' == get_post_type()) {
-            $output .= '<li class="c-bread-list__item"><a class="c-bread-list__link" href="' . esc_url(home_url('/campaign')) . '">Campaign</a></li>';
             $output .= '<li class="c-bread-list__item"><a href="' . esc_url(get_permalink($post->ID)) . '" class="c-bread-list__link" aria-current="page">' . get_the_title($post->ID) . '</a></li>';
         } elseif (is_attachment()) {
             $output .= '<li class="c-bread-list__item"><a href="' . get_permalink($post->ID) .'" class="c-bread-list__link" aria-current="page">'. '添付ファイル：' . wp_title('', false) . '</a></li>';
@@ -69,6 +59,8 @@ function get_breadcrumb()
     } elseif (is_404()) {
         $protocol = empty($_SERVER["HTTPS"]) ? "http://" : "https://";
         $output .= '<li class="c-bread-list__item"><a href="' . esc_url($protocol. $_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"]) . '" class="c-bread-list__link" aria-current="page">見つかりませんでした。</a></li>';
+    } elseif (is_search()) {
+        $output .= '<li class="c-bread-list__item"><a href="' . home_url('/?s=') . get_search_query() . '" class="c-bread-list__link" aria-current="page">「'. get_search_query() .'」の検索結果</a></li>';
     } else {
         $output .= '<li class="c-bread-list__item"><a href="' . esc_url(get_permalink($post->ID)) . '" class="c-bread-list__link" aria-current="page">' . wp_title('', false) . '</a></li>';
     }

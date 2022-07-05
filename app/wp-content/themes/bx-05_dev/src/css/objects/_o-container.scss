@@ -8,13 +8,18 @@
   margin-left: auto;
   margin-right: auto;
   &\:header {
-    position: relative;
-    padding: 0px clamp(setting.spaces(2xs), calc(3.5vw - setting.spaces(base)), setting.spaces(base));
-    @include tool.max-screen(767px) {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+    position: fixed;
+    background: rgba(setting.brandcolor(base), .7);
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 9999;
+    padding: 6px clamp(setting.spaces(2xs), calc(3.5vw - setting.spaces(base)), setting.spaces(base));
+    display: flex;
+		align-items: center;
+		justify-content: space-between;
+    box-shadow: 0 0px 2px setting.brandcolor(dark);
   }
   &\:innerWrap,
   .c-inner-wrap {
@@ -26,13 +31,16 @@
   }
   &\:footer {
     text-align: center;
-    background: linear-gradient(to bottom, setting.brandcolor(dark) 0%, setting.darkcolor(bg) 100%);
+    background: setting.brandcolor(base);
     font-size: setting.fontsize(xs);
     color: setting.lightcolor(bg);
-    padding-bottom: setting.spaces(base);
+    padding-bottom: clamp(calc(93px + setting.spaces(base)), calc((448px - 100vw) * 999), calc(155px + setting.spaces(base)));
   }
 }
 .c-inner-wrap {
   margin-left: auto;
   margin-right: auto;
+}
+.c-copyright {
+  font-family: setting.$font-family-mrn;
 }

@@ -1,4 +1,6 @@
 @use '../settings' as setting;
+@use '../tools' as tool;
+
 .c-btn {
   background: setting.brandcolor(base);
   display: table;
@@ -26,28 +28,6 @@
       color: var(--c-dimmed);
     }
   }
-  &\:sliderInner,
-  &\:frontProduct {
-    border: solid 2px setting.lightcolor(bg);
-    background: setting.lightcolor(overlay);
-    margin-top: setting.spaces(m);
-    display: flex;
-    align-items: center;
-    gap: setting.spaces(xs);
-    font-family: setting.$font-family-mlt;
-    letter-spacing: -3px;
-    &:hover,
-    &:focus {
-      background: setting.lightcolor(bg);
-      color: setting.lightcolor(dimmed);
-    }
-  }
-  &\:frontProduct {
-    margin-top: setting.spaces(l);
-    margin-left: auto;
-    margin-right: auto;
-    max-width: max-content;
-  }
   &\:topicList,
   &\:envelop {
     margin-left: auto;
@@ -59,5 +39,36 @@
   }
   &\:copy {
     flex-shrink: 0;
+  }
+  &\:float {
+    width: 100%;
+    text-align: center;
+    margin-left: clamp(0px, calc((448px - 100vw) * 999), setting.spaces(base));
+    margin-right: clamp(0px, calc((448px - 100vw) * 999), setting.spaces(base));
+    &:hover,
+    &:focus {
+      background: setting.lightcolor(bg);
+      color: setting.lightcolor(dimmed);
+    }
+    @include tool.min-screen(448px) {
+      max-width: max-content;
+    }
+  }
+  &\:ghost {
+    border: solid 2px setting.lightcolor(bg);
+    background: setting.lightcolor(overlay);
+    &:hover,
+    &:focus {
+      background: setting.lightcolor(bg);
+      color: setting.lightcolor(dimmed);
+    }
+    .c-front-box\:plan & {
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      max-width: max-content;
+      align-items: center;
+      gap: setting.spaces(xs);
+    }
   }
 }

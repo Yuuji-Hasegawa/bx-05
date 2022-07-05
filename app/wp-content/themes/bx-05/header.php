@@ -36,139 +36,96 @@
             height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <header class="o-container o-container:header">
-        <a href="<?php echo home_url();?>" class="c-logo">
-            <svg width="32" height="21" viewBox="0 0 32 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M27.9986 13.7163L24.0002 20.5753L19.9992 13.7163H27.9986Z" fill="#6BA4CC" />
-                <path d="M15.9998 20.5753L19.9997 13.7158L23.9996 20.5753H15.9998Z" fill="#70A9CF" />
-                <path d="M19.9987 13.7163L15.9998 20.5753L11.9998 13.7163H19.9987Z" fill="#8DC6DF" />
-                <path d="M7.99988 20.5753L11.9998 13.7158L15.9997 20.5753H7.99988Z" fill="#8FC5DE" />
-                <path d="M0 20.5753L3.99994 13.7163L7.99987 20.5758L0 20.5753Z" fill="#7EAFD2" />
-                <path d="M32 6.85895L28.0001 13.7163L23.9996 6.85895H32Z" fill="#83C1DB" />
-                <path d="M19.9997 13.7163L23.9991 6.85895L27.9985 13.7163H19.9997Z" fill="#7BB6D6" />
-                <path d="M23.9996 6.85895L19.9997 13.7163L15.9998 6.85895H23.9996Z" fill="#76ACD1" />
-                <path d="M11.9998 13.7163L15.9998 6.85895L19.9987 13.7163H11.9998Z" fill="#84BBD9" />
-                <path d="M15.9997 6.85895L11.9998 13.7163L7.99988 6.85895H15.9997Z" fill="#72A7CE" />
-                <path d="M3.99994 13.7163L7.99987 6.85895L11.9988 13.7163H3.99994Z" fill="#6393C4" />
-                <path d="M23.9996 6.85894L27.9991 0L31.9995 6.85946L23.9996 6.85894Z" fill="#94D0E4" />
-                <path d="M15.9998 6.85894L19.9997 0L23.9996 6.85946L15.9998 6.85894Z" fill="#81B7D6" />
-                <path d="M7.99988 6.85894L11.9998 0L15.9997 6.85946L7.99988 6.85894Z" fill="#72A7CE" />
-                <path d="M11.9988 0L7.99987 6.85894L3.99994 0H11.9988Z" fill="#689CC8" />
-            </svg>
-        </a>
-        <nav class="c-head-nav" aria-hidden="true">
-            <ul class="c-gnav">
-                <li class="c-gnav__item">
-                    <a class="c-gnav__link"
-                        href="<?php echo home_url();?>">
-                        HOME
-                    </a>
-                </li>
-                <li class="c-gnav__item">
-                    <a class="c-gnav__link"
-                        href="<?php echo home_url('/product');?>">
-                        PRODUCT
-                    </a>
-                </li>
-                <li class="c-gnav__item">
-                    <a class="c-gnav__link"
-                        href="<?php echo home_url('/gallery');?>">
-                        GALLERY
-                    </a>
-                </li>
-                <li class="c-gnav__item">
-                    <a class="c-gnav__link"
-                        href="<?php echo home_url('/aboutus');?>">
-                        ABOUT US
-                    </a>
-                </li>
-                <li class="c-gnav__item">
-                    <a class="c-gnav__link"
-                        href="<?php echo home_url('/inquiry');?>">
-                        INQUIRY
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        <button class="o-has-icon o-has-icon:menuBtn" id="openBtn" type="button" aria-label="menu open"
-            aria-controls="spMenu" aria-expanded="false">
-            <span class="c-menuBtn-label">MENU</span>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-                <path
-                    d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"
-                    fill="currentColor" />
-            </svg>
-        </button>
-        <div id="spMenu" class="c-sp-menu" aria-hidden="true">
-            <div class="o-container o-container:header">
+        <a href="<?php echo home_url();?>" class="c-logo"><?php echo get_vars('site', 'name');?></a>
+        <form class="c-header-end" method="get"
+            action="<?php echo home_url();?>" role="search">
+            <input class="c-search" name="s" type="text" placeholder="キーワードを入力">
+            <label class="c-search-icon" for="s">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                    <path
+                        d="M500.3 443.7l-119.7-119.7c27.22-40.41 40.65-90.9 33.46-144.7C401.8 87.79 326.8 13.32 235.2 1.723C99.01-15.51-15.51 99.01 1.724 235.2c11.6 91.64 86.08 166.7 177.6 178.9c53.8 7.189 104.3-6.236 144.7-33.46l119.7 119.7c15.62 15.62 40.95 15.62 56.57 0C515.9 484.7 515.9 459.3 500.3 443.7zM79.1 208c0-70.58 57.42-128 128-128s128 57.42 128 128c0 70.58-57.42 128-128 128S79.1 278.6 79.1 208z"
+                        fill="currentColor" />
+                </svg>
+            </label>
+        </form>
+    </header>
+    <button type="button" class="c-menu-btn" aria-label="menu open" aria-controls="sidebar" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+            <path
+                d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"
+                fill="currentColor" />
+        </svg>
+    </button>
+    <div class="c-menu" id="menu" aria-hidden="true">
+        <header class="c-menu__header">
+            <a href="<?php echo home_url();?>" class="c-menu__logo">
+                <svg width="32" height="21" viewBox="0 0 32 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M27.9986 13.7163L24.0002 20.5753L19.9992 13.7163H27.9986Z" fill="#6BA4CC" />
+                    <path d="M15.9998 20.5753L19.9997 13.7158L23.9996 20.5753H15.9998Z" fill="#70A9CF" />
+                    <path d="M19.9987 13.7163L15.9998 20.5753L11.9998 13.7163H19.9987Z" fill="#8DC6DF" />
+                    <path d="M7.99988 20.5753L11.9998 13.7158L15.9997 20.5753H7.99988Z" fill="#8FC5DE" />
+                    <path d="M0 20.5753L3.99994 13.7163L7.99987 20.5758L0 20.5753Z" fill="#7EAFD2" />
+                    <path d="M32 6.85895L28.0001 13.7163L23.9996 6.85895H32Z" fill="#83C1DB" />
+                    <path d="M19.9997 13.7163L23.9991 6.85895L27.9985 13.7163H19.9997Z" fill="#7BB6D6" />
+                    <path d="M23.9996 6.85895L19.9997 13.7163L15.9998 6.85895H23.9996Z" fill="#76ACD1" />
+                    <path d="M11.9998 13.7163L15.9998 6.85895L19.9987 13.7163H11.9998Z" fill="#84BBD9" />
+                    <path d="M15.9997 6.85895L11.9998 13.7163L7.99988 6.85895H15.9997Z" fill="#72A7CE" />
+                    <path d="M3.99994 13.7163L7.99987 6.85895L11.9988 13.7163H3.99994Z" fill="#6393C4" />
+                    <path d="M23.9996 6.85894L27.9991 0L31.9995 6.85946L23.9996 6.85894Z" fill="#94D0E4" />
+                    <path d="M15.9998 6.85894L19.9997 0L23.9996 6.85946L15.9998 6.85894Z" fill="#81B7D6" />
+                    <path d="M7.99988 6.85894L11.9998 0L15.9997 6.85946L7.99988 6.85894Z" fill="#72A7CE" />
+                    <path d="M11.9988 0L7.99987 6.85894L3.99994 0H11.9988Z" fill="#689CC8" />
+                </svg>
+            </a>
+            <button class="c-close-btn" aria-label="menu close" aria-controls="sidebar" aria-expanded="false">
+                <span class="c-close-btn__label">CLOSE</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                    <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                    <path
+                        d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"
+                        fill="currentColor" />
+                </svg>
+            </button>
+        </header>
+        <div class="c-menu__body">
+            <nav class="o-stack o-stack:menu u-mb-l">
                 <a href="<?php echo home_url();?>"
-                    class="c-logo c-logo:sp">
-                    <svg width="32" height="21" viewBox="0 0 32 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M27.9986 13.7163L24.0002 20.5753L19.9992 13.7163H27.9986Z" fill="#6BA4CC" />
-                        <path d="M15.9998 20.5753L19.9997 13.7158L23.9996 20.5753H15.9998Z" fill="#70A9CF" />
-                        <path d="M19.9987 13.7163L15.9998 20.5753L11.9998 13.7163H19.9987Z" fill="#8DC6DF" />
-                        <path d="M7.99988 20.5753L11.9998 13.7158L15.9997 20.5753H7.99988Z" fill="#8FC5DE" />
-                        <path d="M0 20.5753L3.99994 13.7163L7.99987 20.5758L0 20.5753Z" fill="#7EAFD2" />
-                        <path d="M32 6.85895L28.0001 13.7163L23.9996 6.85895H32Z" fill="#83C1DB" />
-                        <path d="M19.9997 13.7163L23.9991 6.85895L27.9985 13.7163H19.9997Z" fill="#7BB6D6" />
-                        <path d="M23.9996 6.85895L19.9997 13.7163L15.9998 6.85895H23.9996Z" fill="#76ACD1" />
-                        <path d="M11.9998 13.7163L15.9998 6.85895L19.9987 13.7163H11.9998Z" fill="#84BBD9" />
-                        <path d="M15.9997 6.85895L11.9998 13.7163L7.99988 6.85895H15.9997Z" fill="#72A7CE" />
-                        <path d="M3.99994 13.7163L7.99987 6.85895L11.9988 13.7163H3.99994Z" fill="#6393C4" />
-                        <path d="M23.9996 6.85894L27.9991 0L31.9995 6.85946L23.9996 6.85894Z" fill="#94D0E4" />
-                        <path d="M15.9998 6.85894L19.9997 0L23.9996 6.85946L15.9998 6.85894Z" fill="#81B7D6" />
-                        <path d="M7.99988 6.85894L11.9998 0L15.9997 6.85946L7.99988 6.85894Z" fill="#72A7CE" />
-                        <path d="M11.9988 0L7.99987 6.85894L3.99994 0H11.9988Z" fill="#689CC8" />
-                    </svg>
-                </a>
-                <button type="button" class="o-has-icon o-has-icon:closeBtn" id="closeBtn" aria-label="menu close"
-                    aria-controls="headMenu" aria-expanded="false">
-                    <span class="c-closeBtn-label">CLOSE</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-                        <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-                        <path
-                            d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"
-                            fill="currentColor" />
-                    </svg>
-                </button>
-            </div>
-            <nav class="c-sp-menu__body u-mb-l">
-                <ul class="c-gnav c-gnav:sp">
-                    <li class="c-gnav__item c-gnav__item:sp">
-                        <a class="c-gnav__link c-gnav__link:sp"
-                            href="<?php echo home_url();?>">
-                            HOME
-                        </a>
-                    </li>
-                    <li class="c-gnav__item c-gnav__item:sp">
-                        <a class="c-gnav__link c-gnav__link:sp"
-                            href="<?php echo home_url('/product');?>">
-                            PRODUCT
-                        </a>
-                    </li>
-                    <li class="c-gnav__item c-gnav__item:sp">
-                        <a class="c-gnav__link c-gnav__link:sp"
-                            href="<?php echo home_url('/gallery');?>">
-                            GALLERY
-                        </a>
-                    </li>
-                    <li class="c-gnav__item c-gnav__item:sp">
-                        <a class="c-gnav__link c-gnav__link:sp"
-                            href="<?php echo home_url('/aboutus');?>">
-                            ABOUT US
-                        </a>
-                    </li>
-                    <li class="c-gnav__item c-gnav__item:sp">
-                        <a class="c-gnav__link c-gnav__link:sp"
-                            href="<?php echo home_url('/inquiry');?>">
-                            INQUIRY
-                        </a>
-                    </li>
-                </ul>
+                    class="c-link c-link:menu">HOME</a>
+                <a href="<?php echo home_url('/company');?>"
+                    class="c-link c-link:menu">COMPANY</a>
+                <a href="<?php echo home_url('/plan');?>"
+                    class="c-link c-link:menu">PLAN</a>
+                <a href="<?php echo home_url('/gallery');?>"
+                    class="c-link c-link:menu">GALLERY</a>
+                <a href="<?php echo home_url('/review');?>"
+                    class="c-link c-link:menu">REVIEW</a>
+                <a href="<?php echo home_url('/inquiry');?>"
+                    class="c-link c-link:menu">INQUIRY</a>
             </nav>
-            <div class="o-cluster o-cluster:spSns">
+            <a href="<?php echo home_url();?>"
+                class="c-menu-logo"><?php echo get_vars('site', 'name');?></a>
+            <div class="c-menu__address">
+                〒<?php echo get_vars('company', 'zip');?>
+                <?php echo get_vars('company', 'address');?><br />
+                <a class="o-has-icon o-has-icon:menuTel"
+                    href="tel:<?php echo get_vars('company', 'tel');?>">
+                    <span class="c-menu-telIcon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                            <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                            <path
+                                d="M320 0H64C37.49 0 16 21.49 16 48v416C16 490.5 37.49 512 64 512h256c26.51 0 48-21.49 48-48v-416C368 21.49 346.5 0 320 0zM192 464c-17.75 0-32-14.25-32-32s14.25-32 32-32s32 14.25 32 32S209.8 464 192 464z"
+                                fill="currentColor" />
+                        </svg>
+                    </span>
+                    <?php echo get_vars('company', 'tel');?>
+                </a>
+                受付時間 平日<?php echo get_vars('company', 'open');?>~<?php echo get_vars('company', 'close');?>
+            </div>
+            <div class="o-cluster o-cluster:menuSns">
                 <a href="<?php echo get_vars('sns', 'fb');?>"
-                    class="c-link c-link:spSns" target="_blank" rel="noopener">
+                    class="c-link c-link:menuSns" target="_blank" rel="noopener">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
                         <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
                         <path
@@ -177,7 +134,7 @@
                     </svg>
                 </a>
                 <a href="<?php echo get_vars('sns', 'tw');?>"
-                    class="c-link c-link:spSns" target="_blank" rel="noopener">
+                    class="c-link c-link:menuSns" target="_blank" rel="noopener">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                         <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
                         <path
@@ -186,7 +143,7 @@
                     </svg>
                 </a>
                 <a href="<?php echo get_vars('sns', 'instagram');?>"
-                    class="c-link c-link:spSns" target="_blank" rel="noopener">
+                    class="c-link c-link:menuSns" target="_blank" rel="noopener">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                         <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
                         <path
@@ -196,7 +153,7 @@
                 </a>
             </div>
         </div>
-    </header>
+    </div>
     <main>
         <?php if (is_front_page()):?>
         <div class="swiper">
@@ -204,13 +161,6 @@
             <div class="swiper-wrapper">
                 <!-- Slides -->
                 <div class="swiper-slide">
-                    <div class="o-cover o-cover:sliderInner">
-                        <h1 class="c-copy">
-                            <?php echo get_vars('site', 'name');?>
-                            <span class="c-copy__bottom"><?php echo get_vars('site', 'description');?></span>
-                        </h1>
-                    </div>
-                    <span class="c-slider-overlay"></span>
                     <picture class="o-frame o-frame:switch">
                         <source type="image/avif"
                             srcset="<?php echo get_template_directory_uri();?>/img/hero.avif" />
@@ -221,20 +171,6 @@
                     </picture>
                 </div>
                 <div class="swiper-slide">
-                    <div class="o-cover o-cover:sliderInner">
-                        <p class="c-copy c-copy:next">季節の新商品<br />入荷しました</p>
-                        <a href="<?php echo home_url('/product');?>"
-                            class="c-btn c-btn:sliderInner">
-                            PRODUCT
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
-                                <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc.-->
-                                <path
-                                    d="M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z"
-                                    fill="currentColor"></path>
-                            </svg>
-                        </a>
-                    </div>
-                    <span class="c-slider-overlay"></span>
                     <picture class="o-frame o-frame:switch">
                         <source type="image/avif"
                             srcset="<?php echo get_template_directory_uri();?>/img/slider-img02.avif" />
@@ -245,20 +181,6 @@
                     </picture>
                 </div>
                 <div class="swiper-slide">
-                    <div class="o-cover o-cover:sliderInner">
-                        <p class="c-copy c-copy:next">10周年記念<br />キャンペーン実施中！</p>
-                        <a href="<?php echo home_url('/campaign');?>"
-                            class="c-btn c-btn:sliderInner">
-                            CAMPAIGN
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
-                                <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc.-->
-                                <path
-                                    d="M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z"
-                                    fill="currentColor"></path>
-                            </svg>
-                        </a>
-                    </div>
-                    <span class="c-slider-overlay"></span>
                     <picture class="o-frame o-frame:switch">
                         <source type="image/avif"
                             srcset="<?php echo get_template_directory_uri();?>/img/slider-img03.avif" />
@@ -269,8 +191,58 @@
                     </picture>
                 </div>
             </div>
-            <!-- If we need pagination -->
-            <div class="swiper-pagination"></div>
+            <h1 class="o-cover o-cover:sliderOver">
+                <span class="c-slider-copy__icon">
+                    <svg width="40" height="26" viewBox="0 0 40 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M34.8751 17.026H25.3882L30.1332 25.1604L34.8751 17.026ZM33.5541 17.785H26.7096L30.133 23.6537L33.5541 17.785Z"
+                            fill="currentColor"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M20.2654 25.1604H29.7529L25.0091 17.0254L20.2654 25.1604ZM21.5866 24.4014H28.4317L25.0091 18.5321L21.5866 24.4014Z"
+                            fill="currentColor"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M24.6281 17.026H15.1418L19.8856 25.1604L24.6281 17.026ZM23.307 17.785H16.4631L19.8855 23.6536L23.307 17.785Z"
+                            fill="currentColor"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M10.019 25.1604H19.5066L14.7628 17.0254L10.019 25.1604ZM11.3403 24.4014H18.1853L14.7628 18.5321L11.3403 24.4014Z"
+                            fill="currentColor"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M0 25.1604L9.48751 25.161L4.74376 17.026L0 25.1604ZM1.32123 24.4015L8.16623 24.4019L4.74373 18.5327L1.32123 24.4015Z"
+                            fill="currentColor"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M40.0001 8.51379H30.512L35.2563 16.6464L40.0001 8.51379ZM38.6787 9.27281H31.8335L35.2563 15.14L38.6787 9.27281Z"
+                            fill="currentColor"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M25.3887 16.6464H34.875L30.1318 8.51379L25.3887 16.6464ZM26.71 15.8874H33.5536L30.1318 10.0204L26.71 15.8874Z"
+                            fill="currentColor"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M29.7529 8.51379H20.2654L25.0091 16.6464L29.7529 8.51379ZM28.4315 9.27281H21.5868L25.0091 15.14L28.4315 9.27281Z"
+                            fill="currentColor"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M15.1418 16.6464H24.6281L19.8856 8.51379L15.1418 16.6464ZM16.4633 15.8874H23.3069L19.8855 10.0204L16.4633 15.8874Z"
+                            fill="currentColor"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M19.5066 8.51379H10.019L14.7628 16.6464L19.5066 8.51379ZM18.1851 9.27281H11.3405L14.7628 15.14L18.1851 9.27281Z"
+                            fill="currentColor"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M4.896 16.6464H14.3823L9.63975 8.51379L4.896 16.6464ZM6.21743 15.8874H13.061L9.63967 10.0204L6.21743 15.8874Z"
+                            fill="currentColor"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M30.512 8.13442L39.9995 8.13503L35.2551 0L30.512 8.13442ZM31.8331 7.3755L38.6781 7.37594L35.2552 1.50672L31.8331 7.3755Z"
+                            fill="currentColor"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M20.2654 8.13442L29.7529 8.13503L25.0091 0L20.2654 8.13442ZM21.5866 7.3755L28.4316 7.37594L25.0091 1.50672L21.5866 7.3755Z"
+                            fill="currentColor"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M10.019 8.13442L19.5066 8.13503L14.7628 0L10.019 8.13442ZM11.3403 7.3755L18.1853 7.37594L14.7628 1.50672L11.3403 7.3755Z"
+                            fill="currentColor"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M14.3823 0H4.896L9.63975 8.13442L14.3823 0ZM13.0612 0.759011H6.21728L9.63967 6.62761L13.0612 0.759011Z"
+                            fill="currentColor"></path>
+                    </svg>
+                </span>
+                <span class="c-slider-copy__logo"><?php echo get_vars('site', 'name');?></span>
+            </h1>
         </div>
         <?php else :?>
         <?php echo get_page_title();

@@ -16,8 +16,8 @@ $font-size: (
   @return map.get($font-weight, $key);
 }
 $font-weight: (
-  xth: 200,
-  th: 300,
+  xth: 100,
+  th: 200,
   n: 400,
   m: 500,
   b: 700,
@@ -36,11 +36,11 @@ $line-height: (
 
 $font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Hiragino Sans', 'Noto Sans CJK JP',
   'Original Yu Gothic', 'Yu Gothic', sans-serif;
-$font-family-mlt: 'Melete', sans-serif;
+$font-family-mrn: 'Morena', sans-serif;
 
 /*!
- * "Melete" is lisenced under the SIL Open Font License 1.1
- * by https://dotcolon.net/font/melete/
+ * "Morena" is copyrighted by NirvanType
+ * by https://befonts.com/morena-typeface.html
  * I have converted from otf to woff2.
  */
 
@@ -63,25 +63,41 @@ $font-family-mlt: 'Melete', sans-serif;
 }
 
 @font-face {
-  font-family: 'Melete';
-  src: url('../fonts/Melete-Regular.woff2') format('woff2');
+  font-family: 'Morena';
+  src: url('../fonts/Morena-ExtraLight.woff2') format('woff2');
+  font-weight: 100;
+  font-style: normal;
+  font-display: optional;
+}
+
+@font-face {
+  font-family: 'Morena';
+  src: url('../fonts/Morena-Light.woff2') format('woff2');
+  font-weight: 200;
+  font-style: normal;
+  font-display: optional;
+}
+
+@font-face {
+  font-family: 'Morena';
+  src: url('../fonts/Morena.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 
 @font-face {
-  font-family: 'Melete';
-  src: url('../fonts/Melete-Medium.woff2') format('woff2');
+  font-family: 'Morena';
+  src: url('../fonts/Morena-Semibold.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 
 @font-face {
-  font-family: 'Melete';
-  src: url('../fonts/Melete-Bold.woff2') format('woff2');
+  font-family: 'Morena';
+  src: url('../fonts/Morena-Bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }

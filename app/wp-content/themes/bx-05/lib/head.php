@@ -5,17 +5,15 @@ function set_my_title()
 {
     if (is_404()) {
         $my_title = '見つかりませんでした';
+    } elseif (is_search()) {
+        $my_title = '「' . get_search_query() . '」の検索結果';
     } elseif (is_archive()) {
         if (is_post_type_archive('news')) {
             $my_title = 'News';
         } elseif (is_post_type_archive('gallery')) {
             $my_title = 'Gallery';
-        } elseif (is_post_type_archive('product')) {
-            $my_title = 'Product';
         } elseif (is_post_type_archive('review')) {
             $my_title = 'Review';
-        } elseif (is_post_type_archive('campaign')) {
-            $my_title = 'Campaign';
         } elseif (is_category()) {
             $my_title = single_cat_title('', false);
         } elseif (is_tag()) {
@@ -46,6 +44,8 @@ function get_page_title()
     $output = '<header class="c-page-heading"><h1 class="o-cover o-cover:headingInner">';
     if (is_404()) {
         $output .= 'Not Found.';
+    } elseif (is_search()) {
+        $output .= '「' . get_search_query() . '」の検索結果';
     } elseif (is_page()) {
         $output .= get_the_title();
     } elseif (is_archive()) {
@@ -53,26 +53,14 @@ function get_page_title()
             $output .= 'News';
         } elseif (is_post_type_archive('gallery')) {
             $output .= 'Gallery';
-        } elseif (is_post_type_archive('product')) {
-            $output .= 'Product';
         } elseif (is_post_type_archive('review')) {
             $output .= 'Review';
-        } elseif (is_post_type_archive('campaign')) {
-            $output .= 'Campaign';
         } elseif (is_category()) {
             $output .= single_cat_title('', false);
         } elseif (is_tag()) {
             $output .= '#' . single_tag_title('', false);
         } else {
             $output .= 'Blog';
-        }
-    } elseif (is_single()) {
-        if ('product' == get_post_type()) {
-            $output .= 'Product';
-        } elseif ('campaign' == get_post_type()) {
-            $output .= 'Campaign';
-        } else {
-            $output .= get_the_title();
         }
     } else {
         $output .= get_the_title();
@@ -138,6 +126,8 @@ function get_my_canonical()
     if (is_404()) {
         $protocol = empty($_SERVER["HTTPS"]) ? "http://" : "https://";
         $canonical = esc_url($protocol. $_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"]);
+    } elseif (is_search()) {
+        $canonical = esc_url(home_url('/?s=') . get_search_query());
     } elseif (is_single() || is_page()) {
         $canonical = esc_url(get_permalink($post->ID));
     } elseif (is_archive()) {

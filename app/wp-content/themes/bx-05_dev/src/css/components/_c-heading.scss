@@ -4,16 +4,13 @@
   line-height: setting.lineheight(heading);
   font-size: clamp(setting.fontsize(l), calc((100vw - 650px) * 999), setting.fontsize(xl));
   text-align: center;
+  &\:mrn {
+    font-family: setting.$font-family-mrn;
+    position: relative;
+    top: 24px;
+  }
   & + * {
     margin-top: setting.spaces(l);
-  }
-  &\:mlt,
-  &\:frontProduct {
-    font-family: setting.$font-family-mlt;
-    letter-spacing: clamp(-10px, calc((768px - 100vw) * -999), -16px);
-  }
-  &\:frontProduct {
-    color: setting.lightcolor(bg);
   }
 }
 .c-trim-title {
@@ -30,10 +27,16 @@
   }
 }
 .c-min-heading {
-  font-weight: setting.fontweight(m);
+  font-weight: setting.fontweight(b);
   line-height: setting.lineheight(heading);
-  font-size: setting.fontsize(l);
+  color: setting.lightcolor(bg);
+  background: setting.brandcolor(base);
+  padding: setting.spaces(xs);
+  font-size: clamp(setting.fontsize(m), calc((100vw - 650px) * 999), setting.fontsize(l));
   & + * {
     margin-top: setting.spaces(m);
+  }
+  &\:center {
+    text-align: center;
   }
 }

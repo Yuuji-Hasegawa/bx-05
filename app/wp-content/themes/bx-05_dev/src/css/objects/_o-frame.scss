@@ -8,10 +8,19 @@
     aspect-ratio: 1/1;
     padding-bottom: calc((1 / 1) * 100%);
   }
+  &\:v {
+    aspect-ratio: 9/16;
+    padding-bottom: calc((16 / 9) * 100%);
+  }
   &\:switch {
     @media screen and (orientation: portrait) {
       aspect-ratio: 9/16;
       padding-bottom: calc((16 / 9) * 100%);
+    }
+  }
+  &\:gmap {
+    > iframe {
+      filter: grayscale(100%);
     }
   }
   > * {

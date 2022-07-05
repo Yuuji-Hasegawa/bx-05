@@ -2,6 +2,10 @@
 .c-link {
   display: block;
   font-weight: setting.fontweight(b);
+  &\:planInner {
+    margin-top: setting.spaces(xs);
+    text-align: center;
+  }
   &\:tag {
     font-weight: setting.fontweight(m);
     display: inline-flex;
@@ -28,11 +32,8 @@
   }
   &\:ftNav {
     color: setting.lightcolor(bg);
-    font-weight: setting.fontweight(m);
-    font-family: setting.$font-family-mlt;
-    letter-spacing: -4px;
-    padding: clamp(setting.spaces(s), calc((100vw - 768px) * 999), setting.spaces(base))
-      clamp(setting.spaces(xs), calc((100vw - 1000px) * 999), setting.spaces(m));
+    font-family: setting.$font-family-mrn;
+    padding: setting.spaces(base) clamp(setting.spaces(xs), calc((100vw - 1000px) * 999), setting.spaces(m)) 0;
     &:hover,
     &:focus {
       color: setting.brandcolor(light);
@@ -50,11 +51,21 @@
     font-size: 1.5rem;
     color: inherit;
   }
-  &\:spSns,
-  &\:bottomSns {
+  &\:menuSns {
     line-height: 1;
     font-size: setting.fontsize(l);
     color: setting.lightcolor(bg);
+    &:hover,
+    &:focus {
+      color: setting.brandcolor(light);
+    }
+  }
+  &\:menu {
+    text-align: center;
+    color: setting.lightcolor(bg);
+    font-size: setting.fontsize(l);
+    font-family: setting.$font-family-mrn;
+    padding-top: 10px;
     &:hover,
     &:focus {
       color: setting.brandcolor(light);

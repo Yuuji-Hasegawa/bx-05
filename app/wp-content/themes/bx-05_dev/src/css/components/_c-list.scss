@@ -26,3 +26,48 @@
     padding-bottom: setting.spaces(base);
   }
 }
+.c-flow-list {
+  counter-reset: step;
+  position: relative;
+  &__item {
+    position: relative;
+    counter-increment: step;
+    padding-left: 60px;
+    &::before {
+      position: absolute;
+      content: counter(step);
+      left: 0;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      font-family: setting.$font-family-mrn;
+      font-weight: setting.fontweight(b);
+      background: setting.brandcolor(base);
+      color: setting.lightcolor(bg);
+      border-radius: 50%;
+      line-height: 1;
+      padding-top: 10px;
+    }
+    &:not(:last-of-type) {
+      margin-bottom: setting.spaces(l);
+      &::after {
+        content: '';
+        width: 1px;
+        height: calc(100% + setting.spaces(l));
+        position: absolute;
+        left: 20px;
+        top: 0;
+        background: setting.brandcolor(light);
+        z-index: -1;
+      }
+    }
+  }
+}
+.c-flow-title {
+  font-size: setting.fontsize(l);
+  font-weight: setting.fontweight(b);
+  line-height: setting.lineheight(heading)
+}

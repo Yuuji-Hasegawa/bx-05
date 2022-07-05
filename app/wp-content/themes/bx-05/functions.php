@@ -23,10 +23,10 @@ function my_get_posts($query)
         $query->set('posts_per_page', 5);
         $query->set('no_found_rows', true);
     } elseif ($query->is_archive()) {
-        if (is_post_type_archive('gallery') || is_post_type_archive('campaign')) {
+        if (is_post_type_archive('gallery')) {
             $query->set('posts_per_page', -1);
             $query->set('no_found_rows', true);
-        } elseif (is_post_type_archive('review') || is_post_type_archive('news')) {
+        } elseif (is_post_type_archive('news')) {
             $query->set('posts_per_page', 10);
         } else {
             $query->set('posts_per_page', 12);

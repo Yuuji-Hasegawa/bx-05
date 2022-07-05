@@ -3,7 +3,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  &\:sliderInner,
+  &\:sliderOver,
   &\:headingInner {
     padding-left: setting.spaces(base);
     padding-right: setting.spaces(base);
@@ -16,7 +16,7 @@
     height: 100%;
     align-items: center;
     justify-content: center;
-    z-index: 2; 
+    z-index: 2;
   }
   &\:headingInner {
     line-height: setting.lineheight(heading);
@@ -25,44 +25,27 @@
     gap: setting.spaces(s);
     background: rgba(setting.lightcolor(txt), 0.7);
   }
-  &__heading-small {
-    font-size: clamp(setting.fontsize(m), calc((100vw - 360px) * 999), setting.fontsize(l));
+  &\:sliderOver {
+    background: rgba(setting.brandcolor(base), .5);
+    gap: setting.spaces(s);
   }
-}
-.c-copy {
-  display: flex;
-  flex-direction: column;
-  line-height: setting.lineheight(heading);
-  font-weight: setting.fontweight(b);
-  font-size: clamp(setting.fontsize(l), calc((100vw - 768px) * 999), setting.fontsize(xl));
-  gap: setting.spaces(s);
-  font-family: setting.$font-family-mlt;
-  letter-spacing: clamp(-10px, calc((768px - 100vw) * -999), -16px);
-  margin-left: calc(-1 * setting.spaces(base));
-  margin-right: calc(-1 * setting.spaces(base));
-  &__bottom {
-    font-size: clamp(setting.fontsize(m), calc((100vw - 768px) * 999), setting.fontsize(l));
-    letter-spacing: 0;
-    font-family: inherit;
-  }
-  &\:next {
-    margin-left: 0;
-    margin-right: 0;
-    letter-spacing: 0;
-    font-family: inherit;
-  }
-}
-.c-slider-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(setting.brandcolor(base), 0.5);
-  z-index: 1;
 }
 .c-page-heading {
   position: relative;
   max-height: 450px;
   overflow: hidden;
+}
+.c-slider-copy {
+  &__icon {
+    line-height: 1;
+    font-size: clamp(setting.fontsize(l), calc((100vw - 360px) * 999), setting.fontsize(xl));
+  }
+  &__logo {
+    line-height: setting.lineheight(heading);
+    font-family: setting.$font-family-mrn;
+    font-weight: setting.fontweight(b);
+    position: relative;
+    top: 10px;
+    font-size: clamp(setting.fontsize(m), calc((100vw - 360px) * 999), setting.fontsize(l));
+  }
 }

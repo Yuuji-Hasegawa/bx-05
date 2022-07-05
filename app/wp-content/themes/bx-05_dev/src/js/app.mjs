@@ -34,10 +34,5 @@ const swiper = new Swiper('.swiper', {
   effect: 'fade',
   fadeEffect: {
     crossFade: true,
-  },
-  pagination: {
-    el: '.swiper-pagination',
-    type: 'bullets',
-    clickable: true,
-  },
+  }
 });

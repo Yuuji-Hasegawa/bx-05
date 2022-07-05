@@ -30,6 +30,7 @@ $grayLightnessIncrement: 11.3%;
 $light-colors: (
   bg: #fff,
   overlay: hsla($grayH, $grayS, $grayPaleL, 0.07),
+  input: hsl($grayH, $grayS - 7%, $grayBase + 1%),
   txt: hsl($grayH, $grayS, $grayPaleL),
   dimmed: hsla($grayH, $grayS, $grayPaleL, 0.5),
   border: hsla($grayH, $grayS, $grayPaleL, 0.1),
@@ -44,6 +45,7 @@ $light-colors: (
 $dark-colors: (
   bg: hsl($grayH, $grayS, $grayPaleL),
   overlay: hsla($grayH, $grayS, $grayBase, 0.07),
+  input: hsl($grayH, $grayS - 4%, $grayBase - 74%),
   txt: hsl($grayH, $grayS, $grayBase),
   dimmed: hsla($grayH, $grayS, $grayBase, 0.5),
   border: hsla($grayH, $grayS, $grayBase, 0.1),

@@ -12,7 +12,7 @@
   h3 {
     font-weight: setting.fontweight(b);
     line-height: setting.lineheight(heading);
-    color: #fff;
+    color: setting.lightcolor(bg);
     background: setting.brandcolor(base);
     padding: setting.spaces(xs);
     font-size: clamp(setting.fontsize(m), calc((100vw - 650px) * 999), setting.fontsize(l));
@@ -57,8 +57,9 @@
   &\:borderBottom {
     border-bottom: solid 1px var(--c-separator);
   }
-  &\:product {
-    background: linear-gradient(to bottom, setting.brandcolor(dark) 0%, setting.darkcolor(bg) 100%);
+  &\:plan {
+    background: setting.brandcolor(base);
+    color: setting.lightcolor(bg);
   }
 }
 .c-redume {
@@ -73,34 +74,68 @@
   margin-bottom: setting.spaces(l);
   color: var(--c-dimmed);
 }
-.swiper {
-  & .swiper-pagination-bullet {
-    background: setting.lightcolor(dimmed);
-  }
-  & .swiper-pagination-bullet-active {
-    background: setting.lightcolor(bg);
-  }
-}
 .swiper-slide {
   position: relative;
-  max-height: 450px;
+  > .o-frame > * {
+    animation: zoomOut 5s ease-out infinite;
+    animation-fill-mode: both;
+    animation-direction: alternate;
+  }
+}
+@keyframes zoomOut {
+  0% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 .c-map-embed {
-  line-height: 1;
-  position: relative;
-  & > iframe {
-    filter: grayscale(100%);
-    display: block;
+  max-height: 450px;
+  overflow: hidden;
+}
+.c-bottom-float {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  background: setting.brandcolor(dark);
+  z-index: 9999;
+  transition: bottom setting.animes(duration) setting.animes(timing),
+  opacity setting.animes(duration) setting.animes(timing);
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  bottom: clamp(-157px, calc((448px - 100vw) * 999), -94px);
+  &__inner {
+    padding: setting.spaces(base) clamp(setting.spaces(2xs), calc(3.5vw - setting.spaces(base)), setting.spaces(base));
+    display: flex;
+		align-items: center;
+		justify-content: center;
+    gap: setting.spaces(base);
+    position: relative;
+    flex-wrap: wrap;
+    box-shadow: 0 0px 2px setting.brandcolor(dark);
+    margin-right: 60px;
+  }
+  &--is-view {
+    bottom: 0;
+    pointer-events: auto;
+    opacity: 1;
+    visibility: visible;
   }
 }
-.c-campaign-badge {
-  background: setting.brandcolor(base);
-  color: #fff;
-  line-height: setting.lineheight(heading);
-  padding: setting.spaces(2xs) setting.spaces(xs);
-  max-width: max-content;
-  &\:end {
-    background: var(--c-overlay);
-    color: var(--c-dimmed);
-  }
+.c-btn-float {
+  position: absolute;
+  line-height: 1;
+  right: -60px;
+  top: 0px;
+  display: flex;
+  width: 60px;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  color: setting.lightcolor(bg);
+  font-size: 24px;
+  background: setting.lightcolor(dimmed);
+  cursor: pointer;
 }
