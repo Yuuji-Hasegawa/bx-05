@@ -1,3 +1,5 @@
+.htaccess
+index.php
 /app/.htaccess
 /app/index.php
 /app/license.txt
@@ -15,5 +17,4 @@
 !/app/wp-content/themes/bx-05_dev/**/*
 /app/wp-content/themes/bx-05_dev/node_modules
 /app/wp-content/themes/bx-05_dev/pnpm-loack.yaml
-.htaccess
-index.php
+.DS_Store
